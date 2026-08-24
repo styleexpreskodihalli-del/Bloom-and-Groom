@@ -9,22 +9,17 @@
 </head>
 <body>
 <div class="bg-black text-[#D4AF37] text-center py-2 text-[11px] tracking-[0.2em]">FREE SHIPPING OVER $40</div>
-
 <nav class="sticky top-0 z-50 bg-white border-b border-black/5">
 <div class="max-w-[1440px] mx-auto px-6 py-3 flex justify-between items-center">
-<!-- TOP ALIGNMENT SAME, NO COLOR BEHIND LOGO -->
 <div class="flex items-center gap-3">
-<img src="logo-full.jpg" style="height:60px; width:auto; object-fit:contain; display:block; mix-blend-mode:multiply;">
+<img src="logo.jpg" style="height:60px; width:60px; object-fit:contain; display:block; border-radius:50%; mix-blend-mode:multiply;">
 <div><p class="serif text-[20px] font-bold leading-none">BLOOM & GROOM</p><p class="text-[9px] tracking-[0.3em] opacity-60">GROOMING ESSENTIALS, PURE LOVE</p></div>
 </div>
 <div class="flex gap-3">
-<a href="https://wa.me/918197018680" class="bg-[#25D366] text-white px-4 py-2 rounded-full text-sm font-bold">Chat</a>
-<button onclick="toggleCart()" class="bg-black text-white px-5 py-2 rounded-full text-sm font-bold">Cart (<span id="cartCount">0</span>)</button>
+<a href="checkout.html" class="bg-black text-white px-5 py-2 rounded-full text-sm font-bold">Cart (<span id="cartCount">0</span>) → Checkout</a>
 </div>
 </div>
 </nav>
-
-<!-- HERO: No color block behind logo-full, transparent -->
 <section class="max-w-[1440px] mx-auto px-4 mt-6">
 <div class="rounded-[32px] overflow-hidden bg-[#fff6ea] min-h-[650px] flex flex-col md:flex-row items-center">
 <div class="w-full md:w-1/2 p-10">
@@ -32,36 +27,27 @@
 <button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})" class="bg-black text-white px-8 py-4 rounded-full font-bold mt-8">SHOP NOW</button>
 </div>
 <div class="w-full md:w-1/2 grid place-items-center p-10">
-<!-- NO bg-white behind this logo now -->
 <img src="logo-full.jpg" class="max-w-[400px] w-full" style="mix-blend-mode:multiply;">
 </div>
 </div>
 </section>
-
 <section id="shop" class="max-w-[1440px] mx-auto px-6 py-16">
 <h2 class="serif text-4xl font-bold text-center">Our Collection</h2>
 <div id="productGrid" class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-10"></div>
 </section>
-
 <footer class="bg-black text-white py-12">
 <div class="flex flex-col items-center justify-center text-center">
-<!-- FOOTER LOGO: No color behind, just logo -->
 <img src="logo.jpg" style="width:90px; height:90px; object-fit:contain; display:block; border-radius:50%;" class="mx-auto mb-4">
 <p class="serif text-xl font-bold">BLOOM & GROOM</p>
 <p class="text-[10px] tracking-[0.3em] text-[#D4AF37]">GROOMING ESSENTIALS, PURE LOVE</p>
 </div>
 </footer>
-
-<div id="cartDrawer" class="fixed inset-0 z-[100] hidden"><div class="absolute inset-0 bg-black/60" onclick="toggleCart()"></div><div class="absolute right-0 top-0 h-full w-full max-w-[400px] bg-[#fffaf5] flex flex-col"><div class="p-6 flex justify-between border-b"><h3 class="serif text-xl font-bold">Your Cart</h3><button onclick="toggleCart()">✕</button></div><div id="cartItems" class="flex-1 overflow-auto p-6"></div><div class="p-6 border-t bg-white"><div class="flex justify-between font-bold mb-3"><span>Total</span><span id="cartTotal">$0</span></div><button onclick="checkoutWhatsApp()" class="w-full bg-[#25D366] text-white py-3 rounded-full font-bold">Order on WhatsApp</button></div></div></div>
-
 <script>
 const products=[{id:1,name:"Paw Balm",price:12},{id:2,name:"Shampoo",price:24},{id:3,name:"Conditioner",price:26},{id:4,name:"Hairball Paste",price:22},{id:5,name:"Detangling Spray",price:21},{id:6,name:"Ear Cleaner",price:18},{id:7,name:"Foam Shampoo",price:19},{id:8,name:"Complete Bundle",price:129}];
 let cart=JSON.parse(localStorage.getItem('bloom_cart')||'[]');
 function renderProducts(){const g=document.getElementById('productGrid');g.innerHTML='';products.forEach(p=>{const d=document.createElement('div');d.className="bg-white rounded-[24px] p-5 border";d.innerHTML=`<div class="bg-[#fff6ea] h-[180px] grid place-items-center rounded-xl"><img src="logo-full.jpg" class="w-[120px]" style="mix-blend-mode:multiply;"></div><div class="mt-4"><h3 class="font-bold">${p.name}</h3><div class="flex justify-between mt-2"><b>$${p.price}</b><button onclick="addToCart(${p.id})" class="bg-black text-white px-4 py-1.5 rounded-full text-xs">ADD</button></div></div>`;g.appendChild(d);});}
-function addToCart(id){const p=products.find(x=>x.id===id);const f=cart.find(c=>c.id===id);if(f)f.qty++;else cart.push({...p,qty:1});localStorage.setItem('bloom_cart',JSON.stringify(cart));updateCart();document.getElementById('cartDrawer').classList.remove('hidden');}
-function updateCart(){document.getElementById('cartCount').innerText=cart.reduce((s,c)=>s+c.qty,0);let t=0;const d=document.getElementById('cartItems');d.innerHTML='';cart.forEach(c=>{t+=c.price*c.qty;d.innerHTML+=`<div class="flex gap-2 bg-white p-3 rounded border"><img src="logo-full.jpg" class="w-10 h-10" style="mix-blend-mode:multiply;"><div><p class="text-sm font-bold">${c.name} x${c.qty}</p></div><b class="ml-auto">$${c.price*c.qty}</b></div>`});document.getElementById('cartTotal').innerText='$'+t;}
-function toggleCart(){document.getElementById('cartDrawer').classList.toggle('hidden');}
-function checkoutWhatsApp(){let m="Hi Bloom & Groom! Order:%0A";cart.forEach(c=>{m+=`${c.name} x${c.qty}%0A`});window.open(`https://wa.me/918197018680?text=${m}`,'_blank');}
+function addToCart(id){const p=products.find(x=>x.id===id);const f=cart.find(c=>c.id===id);if(f)f.qty++;else cart.push({...p,qty:1});localStorage.setItem('bloom_cart',JSON.stringify(cart));updateCart();window.location.href='checkout.html';}
+function updateCart(){document.getElementById('cartCount').innerText=cart.reduce((s,c)=>s+c.qty,0);}
 renderProducts();updateCart();
 </script>
 </body>
