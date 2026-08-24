@@ -8,24 +8,31 @@
 <style>body{font-family:'Plus Jakarta Sans',sans-serif;background:#fffaf5;}.serif{font-family:'Playfair Display',serif;}</style>
 </head>
 <body>
+
+<!-- TOP BAR -->
 <div class="bg-black text-[#D4AF37] text-center py-2 text-[11px] tracking-[0.2em]">FREE SHIPPING OVER $40</div>
+
+<!-- NAVBAR - LOGO FIXED HERE -->
 <nav class="sticky top-0 z-50 bg-white border-b border-black/5">
 <div class="max-w-[1440px] mx-auto px-6 py-3 flex justify-between items-center">
+<!-- LOGO -->
 <div class="flex items-center gap-3">
-<img src="logo.jpg" style="height:60px; width:60px; object-fit:contain; display:block; border-radius:50%; mix-blend-mode:multiply;">
-<div><p class="serif text-[20px] font-bold leading-none">BLOOM & GROOM</p><p class="text-[9px] tracking-[0.3em] opacity-60">GROOMING ESSENTIALS, PURE LOVE</p></div>
+<img src="logo.jpg" alt="Bloom & Groom Logo" style="height:55px; width:55px; object-fit:contain; display:block; border-radius:8px; background:white;">
+<div><p class="serif text-[20px] font-bold leading-none tracking-tight">BLOOM & GROOM</p><p class="text-[9px] tracking-[0.3em] opacity-60">GROOMING ESSENTIALS, PURE LOVE</p></div>
 </div>
+<!-- CART -->
 <div class="flex gap-3">
 <a href="checkout.html" class="bg-black text-white px-5 py-2 rounded-full text-sm font-bold">Cart (<span id="cartCount">0</span>) → Checkout</a>
 </div>
 </div>
 </nav>
 
+<!-- HERO SECTION -->
 <section class="max-w-[1440px] mx-auto px-4 mt-6">
 <div class="rounded-[32px] overflow-hidden bg-[#fff6ea] min-h-[650px] flex flex-col md:flex-row items-center">
 <div class="w-full md:w-1/2 p-10">
 <h1 class="serif text-[60px] leading-[0.9] font-bold">Bloom & Groom</h1>
-<p class="mt-4 text-black/60">Premium grooming essentials crafted with pure love for your pets.</p>
+<p class="mt-4 text-black/60 text-[15px]">Premium grooming essentials crafted with pure love for your pets.</p>
 <button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})" class="bg-black text-white px-8 py-4 rounded-full font-bold mt-8">SHOP NOW</button>
 </div>
 <div class="w-full md:w-1/2 grid place-items-center p-10">
@@ -34,31 +41,37 @@
 </div>
 </section>
 
+<!-- SHOP / PRODUCTS -->
 <section id="shop" class="max-w-[1440px] mx-auto px-6 py-16">
 <h2 class="serif text-4xl font-bold text-center">Our Collection</h2>
 <div id="productGrid" class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-10"></div>
 </section>
 
+<!-- FOOTER - QUICK LINKS + POLICIES + CONTACT -->
 <footer class="bg-black text-white pt-14 pb-8">
 <div class="max-w-[1440px] mx-auto px-6">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+<!-- BRAND -->
 <div class="text-center md:text-left">
-<img src="logo.jpg" style="width:80px;height:80px;border-radius:50%;object-fit:contain" class="mx-auto md:mx-0 mb-4">
+<img src="logo.jpg" style="width:80px;height:80px;border-radius:50%;object-fit:contain;background:white;" class="mx-auto md:mx-0 mb-4">
 <p class="serif text-[18px] font-bold">BLOOM & GROOM</p>
 <p class="text-[9px] tracking-[0.3em] text-[#D4AF37] mt-1">GROOMING ESSENTIALS, PURE LOVE</p>
 </div>
+<!-- QUICK LINKS -->
 <div class="text-center md:text-left">
 <h4 class="text-[#D4AF37] text-[12px] tracking-[0.2em] font-bold mb-4">QUICK LINKS</h4>
 <a href="/about" class="block text-[14px] text-white/70 hover:text-white mb-2">About Us</a>
 <a href="/contact" class="block text-[14px] text-white/70 hover:text-white mb-2">Contact Us</a>
 <a href="/" class="block text-[14px] text-white/70 hover:text-white mb-2">Shop</a>
 </div>
+<!-- POLICIES -->
 <div class="text-center md:text-left">
 <h4 class="text-[#D4AF37] text-[12px] tracking-[0.2em] font-bold mb-4">POLICIES</h4>
 <a href="/refund" class="block text-[14px] text-white/70 hover:text-white mb-2">Refund Policy</a>
 <a href="/terms" class="block text-[14px] text-white/70 hover:text-white mb-2">Terms & Conditions</a>
 <a href="/terms" class="block text-[14px] text-white/70 hover:text-white mb-2">Privacy Policy</a>
 </div>
+<!-- CONTACT -->
 <div class="text-center md:text-left">
 <h4 class="text-[#D4AF37] text-[12px] tracking-[0.2em] font-bold mb-4">CONTACT</h4>
 <p class="text-[14px] text-white/70 mb-2">support@bloomandgroom.in</p>
@@ -66,12 +79,14 @@
 <p class="text-[14px] text-white/70 mb-2">WhatsApp: +91 8197018680</p>
 </div>
 </div>
+<!-- COPYRIGHT -->
 <div class="border-t border-white/10 mt-12 pt-6 text-center">
 <p class="text-[11px] text-white/40 tracking-wide">© 2026 Bloom & Groom. All Rights Reserved. | Bangalore, India | Made with ❤️ for Pets | Secure Payments via Razorpay</p>
 </div>
 </div>
 </footer>
 
+<!-- CART LOGIC -->
 <script>
 const products=[{id:1,name:"Paw Balm",price:12},{id:2,name:"Shampoo",price:24},{id:3,name:"Conditioner",price:26},{id:4,name:"Hairball Paste",price:22},{id:5,name:"Detangling Spray",price:21},{id:6,name:"Ear Cleaner",price:18},{id:7,name:"Foam Shampoo",price:19},{id:8,name:"Complete Bundle",price:129}];
 let cart=JSON.parse(localStorage.getItem('bloom_cart')||'[]');
