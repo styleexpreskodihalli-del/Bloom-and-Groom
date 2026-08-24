@@ -10,7 +10,7 @@
 </head>
 <body>
 <nav class="bg-white border-b p-4 flex justify-between items-center sticky top-0">
-<div class="flex items-center gap-2"><img src="logo.jpg" style="height:50px;width:50px;border-radius:50%;mix-blend-mode:multiply;"><span class="serif font-bold">BLOOM & GROOM</span></div>
+<div class="flex items-center gap-2"><img src="logo-full.jpg" style="height:50px;width:50px;border-radius:50%;mix-blend-mode:multiply;"><span class="serif font-bold">BLOOM & GROOM</span></div>
 <a href="index-final-frozen.html" class="border px-4 py-2 rounded-full text-sm font-bold">← Shop</a>
 </nav>
 <div class="max-w-[1000px] mx-auto px-6 py-10 grid md:grid-cols-2 gap-8">
@@ -37,7 +37,7 @@ if(!name||!phone||!addr){alert('Fill Name, Phone, Address');return;}
 const resp=await fetch('/api/create-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({cart})});
 const data=await resp.json();
 if(!data.orderId){alert('Order creation failed');return;}
-var options={ "key": data.key, "amount": data.amount, "currency": "INR", "name": "Bloom & Groom", "order_id": data.orderId, "image": "logo.jpg",
+var options={ "key": data.key, "amount": data.amount, "currency": "INR", "name": "Bloom & Groom", "order_id": data.orderId, "image": "logo-full.jpg",
 "handler": function(r){let m=`NEW PAID ORDER%0APayment ID: ${r.razorpay_payment_id}%0AOrder ID: ${data.orderId}%0AName: ${name}%0APhone: ${phone}%0AAddress: ${addr}%0AItems: ${cart.map(c=>c.name+' x'+c.qty).join(', ')}%0ATotal: ₹${total}`;localStorage.removeItem('bloom_cart');window.open(`https://wa.me/918197018680?text=${m}`,'_blank');},
 "prefill": {"name": name, "contact": phone}, "theme": {"color": "#000000"}};
 var rzp=new Razorpay(options);rzp.open();
