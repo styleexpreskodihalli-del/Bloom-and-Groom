@@ -1,69 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bloom & Groom — ST Luxury Collection</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bloom & Groom — Grooming Essentials, Pure Love</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-:root{--gold:#D4AF37;--black:#0a0a0a;--pink:#ffb6c1;}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:#fffaf5;}
 .serif{font-family:'Playfair Display',serif;}
-.logo-transparent{mix-blend-mode:multiply;filter:contrast(1.1);}
+.logo-transparent{mix-blend-mode:multiply;}
 </style>
 </head>
 <body>
-<div class="bg-black text-[#D4AF37] text-center py-2 text-[11px] tracking-[0.2em]">FREE SHIPPING OVER $40 • WHATSAPP: +91 8197018680 • ST LUXURY COLLECTION</div>
-<nav class="sticky top-0 z-50 bg-[#fffaf5]/95 backdrop-blur-xl border-b border-black/5">
-<div class="max-w-[1440px] mx-auto px-6 md:px-10 py-3 flex justify-between items-center">
-<div class="flex items-center gap-4">
-<img src="logo.jpg" class="h-[70px] w-auto logo-transparent">
-<div class="hidden md:block"><p class="serif text-[22px] font-bold leading-none">BLOOM & GROOM</p><p class="text-[9px] tracking-[0.3em] opacity-60">GROOMING ESSENTIALS, PURE LOVE</p></div>
-</div>
+
+<div class="bg-black text-[#D4AF37] text-center py-2 text-[11px] tracking-[0.2em]">FREE SHIPPING OVER $40 • WHATSAPP: +91 8197018680</div>
+
+<nav class="sticky top-0 z-50 bg-[#fffaf5]/95 backdrop-blur border-b border-black/5">
+<div class="max-w-[1440px] mx-auto px-6 py-3 flex justify-between items-center">
 <div class="flex items-center gap-3">
-<a href="https://wa.me/918197018680" class="hidden md:flex bg-[#25D366] text-white px-4 py-2 rounded-full text-sm font-bold gap-2 items-center"><i class="fab fa-whatsapp"></i> Chat</a>
-<button onclick="toggleCart()" class="bg-black text-[#D4AF37] border border-[#D4AF37] px-6 py-2.5 rounded-full font-bold text-sm">Cart (<span id="cartCount">0</span>)</button>
+<img src="logo.jpg" class="h-[65px] w-auto logo-transparent">
+<div><p class="serif text-[20px] font-bold leading-none">BLOOM & GROOM</p><p class="text-[9px] tracking-[0.3em] opacity-60">GROOMING ESSENTIALS, PURE LOVE</p></div>
+</div>
+<div class="flex gap-3">
+<a href="https://wa.me/918197018680" class="bg-[#25D366] text-white px-4 py-2 rounded-full text-sm font-bold"><i class="fab fa-whatsapp"></i> Chat</a>
+<button onclick="toggleCart()" class="bg-black text-white px-5 py-2 rounded-full text-sm font-bold">Cart (<span id="cartCount">0</span>)</button>
 </div>
 </div>
 </nav>
+
 <section class="max-w-[1440px] mx-auto px-4 mt-6">
-<div class="rounded-[36px] overflow-hidden bg-gradient-to-br from-[#fff6ea] via-[#fffaf5] to-[#ffe9ec] min-h-[720px] flex flex-col md:flex-row relative">
+<div class="rounded-[32px] overflow-hidden bg-gradient-to-br from-[#fff6ea] via-[#fffaf5] to-[#ffe9ec] min-h-[600px] flex flex-col md:flex-row">
 <div class="w-full md:w-1/2 p-10 md:p-16 flex flex-col justify-center">
-<div class="inline-flex items-center gap-2 bg-black text-[#D4AF37] px-4 py-1.5 rounded-full text-[10px] tracking-widest font-bold mb-6">✦ ST LUXURY EDITION</div>
-<h1 class="serif text-[56px] md:text-[88px] leading-[0.9] font-bold">Bloom &<br><span class="text-[#b8962f] italic">Groom</span></h1>
-<p class="mt-6 text-[18px] opacity-70 leading-relaxed max-w-[420px]">ST Signature Collection — botanical, vet-approved grooming essentials crafted with pure love for cats & dogs.</p>
+<h1 class="serif text-[56px] md:text-[80px] leading-[0.9] font-bold">Bloom &<br><span class="text-[#b8962f] italic">Groom</span></h1>
+<p class="mt-6 text-[18px] opacity-70 max-w-[400px]">Botanical, vet-approved grooming essentials crafted with pure love for cats & dogs.</p>
 <div class="flex gap-3 mt-8">
-<button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})" class="bg-black text-white px-8 py-4 rounded-full font-bold">SHOP COLLECTION →</button>
+<button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})" class="bg-black text-white px-8 py-4 rounded-full font-bold">SHOP NOW →</button>
 <a href="https://wa.me/918197018680" class="bg-white border border-black/10 px-8 py-4 rounded-full font-bold flex items-center gap-2"><i class="fab fa-whatsapp text-[#25D366] text-xl"></i> WhatsApp</a>
 </div>
 </div>
-<div class="w-full md:w-1/2 bg-white grid place-items-center p-8 md:p-12 relative">
-<div class="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/10 to-pink-200/20"></div>
-<img src="logo.jpg" class="relative z-10 max-w-[480px] w-full drop-shadow-2xl logo-transparent">
+<div class="w-full md:w-1/2 bg-white grid place-items-center p-10">
+<img src="logo.jpg" class="max-w-[420px] w-full drop-shadow-xl logo-transparent">
 </div>
 </div>
 </section>
-<section id="shop" class="max-w-[1440px] mx-auto px-6 py-20">
-<div class="text-center mb-12"><h2 class="serif text-5xl font-bold">The ST Collection</h2><p class="opacity-60 mt-3">Botanical luxury for your beloved pets</p></div>
+
+<section id="shop" class="max-w-[1440px] mx-auto px-6 py-16">
+<h2 class="serif text-4xl font-bold text-center mb-2">Our Collection</h2>
+<p class="text-center opacity-60 mb-10">Grooming Essentials, Pure Love</p>
 <div id="productGrid" class="grid grid-cols-1 md:grid-cols-4 gap-6"></div>
 </section>
-<footer class="bg-black text-white py-12 text-center">
-<img src="logo.jpg" class="h-16 mx-auto mb-4 brightness-0 invert">
+
+<footer class="bg-black text-white py-10 text-center">
+<img src="logo.jpg" class="h-14 mx-auto mb-3 brightness-0 invert">
 <p class="serif text-xl">BLOOM & GROOM</p>
-<p class="text-[10px] tracking-[0.3em] text-[#D4AF37]">ST LUXURY • GROOMING ESSENTIALS, PURE LOVE</p>
-<p class="mt-6 text-sm opacity-60">WhatsApp: +91 8197018680 | Bangalore, India</p>
+<p class="text-[10px] tracking-[0.3em] text-[#D4AF37] mt-1">GROOMING ESSENTIALS, PURE LOVE</p>
+<p class="text-xs opacity-60 mt-4">WhatsApp: +91 8197018680 | Bangalore, India</p>
 </footer>
-<div id="cartDrawer" class="fixed inset-0 z-[100] hidden"><div class="absolute inset-0 bg-black/60" onclick="toggleCart()"></div><div class="absolute right-0 top-0 h-full w-full max-w-[420px] bg-[#fffaf5] flex flex-col"><div class="p-6 flex justify-between border-b"><h3 class="text-2xl serif font-bold">Your Cart</h3><button onclick="toggleCart()">✕</button></div><div id="cartItems" class="flex-1 overflow-auto p-6 space-y-3"></div><div class="p-6 border-t bg-white"><div class="flex justify-between font-bold text-lg mb-4"><span>Subtotal</span><span id="cartTotal">$0</span></div><button onclick="checkoutWhatsApp()" class="w-full bg-[#25D366] text-white py-4 rounded-full font-bold"><i class="fab fa-whatsapp"></i> Order on WhatsApp</button></div></div></div>
+
+<div id="cartDrawer" class="fixed inset-0 z-[100] hidden"><div class="absolute inset-0 bg-black/60" onclick="toggleCart()"></div><div class="absolute right-0 top-0 h-full w-full max-w-[400px] bg-[#fffaf5] flex flex-col"><div class="p-6 flex justify-between border-b"><h3 class="serif text-xl font-bold">Your Cart</h3><button onclick="toggleCart()">✕</button></div><div id="cartItems" class="flex-1 overflow-auto p-6 space-y-3"></div><div class="p-6 border-t bg-white"><div class="flex justify-between font-bold mb-3"><span>Total</span><span id="cartTotal">$0</span></div><button onclick="checkoutWhatsApp()" class="w-full bg-[#25D366] text-white py-3 rounded-full font-bold"><i class="fab fa-whatsapp"></i> Order on WhatsApp</button></div></div></div>
+
 <script>
-const products=[{id:1,name:"Paw Balm",price:12,desc:"Nourishing protection"},{id:2,name:"Shampoo",price:24,desc:"Gentle botanical"},{id:3,name:"Conditioner",price:26,desc:"Silky soft coat"},{id:4,name:"Hairball Paste",price:22,desc:"Natural fiber"},{id:5,name:"Detangling Spray",price:21,desc:"Tangle-free"},{id:6,name:"Ear Cleaner",price:18,desc:"Vet approved"},{id:7,name:"Foam Shampoo",price:19,desc:"Waterless"},{id:8,name:"Complete Bundle",price:129,desc:"All 7 essentials",featured:true}];
+const products=[{id:1,name:"Paw Balm",price:12},{id:2,name:"Shampoo",price:24},{id:3,name:"Conditioner",price:26},{id:4,name:"Hairball Paste",price:22},{id:5,name:"Detangling Spray",price:21},{id:6,name:"Ear Cleaner",price:18},{id:7,name:"Foam Shampoo",price:19},{id:8,name:"Complete Bundle",price:129}];
 let cart=JSON.parse(localStorage.getItem('bloom_cart')||'[]');
-function renderProducts(){const g=document.getElementById('productGrid');g.innerHTML='';products.forEach(p=>{const el=document.createElement('div');el.className=p.featured?"bg-black text-white rounded-[28px] p-7":"bg-white rounded-[28px] p-5 border border-black/5";el.innerHTML=`<div class="${p.featured?"bg-white/10":"bg-[#fff6ea]"} h-[200px] grid place-items-center rounded-[18px]"><img src="logo.jpg" class="w-1/2 opacity-20 logo-transparent"></div><div class="mt-4"><h3 class="font-bold">${p.name}</h3><p class="text-xs opacity-60">${p.desc}</p><div class="flex justify-between items-center mt-3"><span class="font-bold">$${p.price}</span><button onclick="addToCart(${p.id})" class="bg-black text-white px-5 py-2 rounded-full text-xs font-bold">ADD</button></div></div>`;g.appendChild(el);});}
-function addToCart(id){const prod=products.find(p=>p.id===id);const f=cart.find(c=>c.id===id);if(f)f.qty++;else cart.push({...prod,qty:1});localStorage.setItem('bloom_cart',JSON.stringify(cart));updateCartUI();document.getElementById('cartDrawer').classList.remove('hidden');}
-function updateCartUI(){document.getElementById('cartCount').innerText=cart.reduce((s,c)=>s+c.qty,0);let t=0;const d=document.getElementById('cartItems');d.innerHTML='';cart.forEach(c=>{t+=c.price*c.qty;d.innerHTML+=`<div class="flex gap-3 bg-white p-3 rounded-xl border"><img src="logo.jpg" class="w-12 h-12 logo-transparent"><div><b>${c.name}</b> x${c.qty}</div></div>`});document.getElementById('cartTotal').innerText='$'+t;}
+function renderProducts(){const g=document.getElementById('productGrid');g.innerHTML='';products.forEach(p=>{const d=document.createElement('div');d.className="bg-white rounded-[24px] p-5 border border-black/5";d.innerHTML=`<div class="bg-[#fff6ea] h-[180px] grid place-items-center rounded-xl"><img src="logo.jpg" class="w-24 opacity-30 logo-transparent"></div><div class="mt-4"><h3 class="font-bold">${p.name}</h3><div class="flex justify-between items-center mt-2"><b>$${p.price}</b><button onclick="addToCart(${p.id})" class="bg-black text-white px-4 py-1.5 rounded-full text-xs font-bold">ADD</button></div></div>`;g.appendChild(d);});}
+function addToCart(id){const p=products.find(x=>x.id===id);const f=cart.find(c=>c.id===id);if(f)f.qty++;else cart.push({...p,qty:1});localStorage.setItem('bloom_cart',JSON.stringify(cart));updateCart();document.getElementById('cartDrawer').classList.remove('hidden');}
+function updateCart(){document.getElementById('cartCount').innerText=cart.reduce((s,c)=>s+c.qty,0);let t=0;const d=document.getElementById('cartItems');d.innerHTML='';cart.forEach(c=>{t+=c.price*c.qty;d.innerHTML+=`<div class="flex justify-between bg-white p-3 rounded border"><span>${c.name} x${c.qty}</span><b>$${c.price*c.qty}</b></div>`});document.getElementById('cartTotal').innerText='$'+t;}
 function toggleCart(){document.getElementById('cartDrawer').classList.toggle('hidden');}
-function checkoutWhatsApp(){let msg="Hi Bloom & Groom! I want to order:%0A";cart.forEach(c=>{msg+=`${c.name} x${c.qty}%0A`});window.open(`https://wa.me/918197018680?text=${msg}`,'_blank');}
-renderProducts();updateCartUI();
+function checkoutWhatsApp(){let m="Hi Bloom & Groom! I want to order:%0A%0A";cart.forEach(c=>{m+=`• ${c.name} x${c.qty} = $${c.price*c.qty}%0A`});const total=cart.reduce((s,c)=>s+c.price*c.qty,0);m+=`%0ATotal: $${total}`;window.open(`https://wa.me/918197018680?text=${m}`,'_blank');}
+renderProducts();updateCart();
 </script>
 </body>
 </html>
