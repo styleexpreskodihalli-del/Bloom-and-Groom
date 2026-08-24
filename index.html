@@ -9,15 +9,17 @@
 <style>
 body{font-family:'Plus Jakarta Sans',sans-serif;background:#fffaf5;}
 .serif{font-family:'Playfair Display',serif;}
+/* TOP LOGO - NO WHITE BOX, RAW */
+.top-logo{height:70px; width:auto; display:block; background:transparent; mix-blend-mode:multiply;}
 </style>
 </head>
 <body>
 <div class="bg-black text-[#D4AF37] text-center py-2 text-[11px] tracking-[0.2em]">FREE SHIPPING OVER $40 • WHATSAPP: +91 8197018680</div>
 
-<nav class="sticky top-0 z-50 bg-[#fffaf5]/95 backdrop-blur-xl border-b border-black/5">
+<nav class="sticky top-0 z-50 bg-white border-b border-black/5">
 <div class="max-w-[1440px] mx-auto px-6 py-3 flex justify-between items-center">
 <div class="flex items-center gap-3">
-<img src="logo.png" style="height:70px; width:auto; display:block; background:transparent;">
+<img src="logo.jpg" class="top-logo">
 <div><p class="serif text-[20px] font-bold leading-none">BLOOM & GROOM</p><p class="text-[9px] tracking-[0.3em] opacity-60">GROOMING ESSENTIALS, PURE LOVE</p></div>
 </div>
 <div class="flex gap-3">
@@ -45,13 +47,15 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#fffaf5;}
 <div id="productGrid" class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-10"></div>
 </section>
 
-<footer class="bg-black text-white py-12 text-center flex flex-col items-center justify-center">
-<div class="bg-white w-[90px] h-[90px] rounded-full flex items-center justify-center mx-auto mb-4 shadow-[0_0_20px_rgba(212,175,55,0.4)]">
-<img src="logo.png" style="width:75px; height:75px; object-fit:contain;">
+<footer class="bg-black text-white py-12">
+<div class="flex flex-col items-center justify-center text-center">
+<div class="bg-white w-[90px] h-[90px] rounded-full flex items-center justify-center mb-4">
+<img src="logo.jpg" style="width:75px; height:75px; object-fit:contain; display:block;">
 </div>
 <p class="serif text-xl font-bold">BLOOM & GROOM</p>
 <p class="text-[10px] tracking-[0.3em] text-[#D4AF37] mt-1">GROOMING ESSENTIALS, PURE LOVE</p>
 <p class="text-xs opacity-60 mt-4">WhatsApp: +91 8197018680 | Bangalore</p>
+</div>
 </footer>
 
 <div id="cartDrawer" class="fixed inset-0 z-[100] hidden"><div class="absolute inset-0 bg-black/60" onclick="toggleCart()"></div><div class="absolute right-0 top-0 h-full w-full max-w-[400px] bg-[#fffaf5] flex flex-col"><div class="p-6 flex justify-between border-b"><h3 class="serif text-xl font-bold">Your Cart</h3><button onclick="toggleCart()">✕</button></div><div id="cartItems" class="flex-1 overflow-auto p-6"></div><div class="p-6 border-t bg-white"><div class="flex justify-between font-bold mb-3"><span>Total</span><span id="cartTotal">$0</span></div><button onclick="checkoutWhatsApp()" class="w-full bg-[#25D366] text-white py-3 rounded-full font-bold"><i class="fab fa-whatsapp"></i> Order on WhatsApp</button></div></div></div>
