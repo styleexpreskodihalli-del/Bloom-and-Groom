@@ -1,3 +1,18 @@
 {
-  "version": 2
+  "version": 2,
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "checkout.html", "use": "@vercel/static" },
+    { "src": "*.jpg", "use": "@vercel/static" },
+    { "src": "api/create-order.js", "use": "@vercel/node" },
+    { "src": "index.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/create-order", "dest": "/api/create-order.js" },
+    { "src": "/checkout.html", "dest": "/checkout.html" },
+    { "src": "/logo.jpg", "dest": "/logo.jpg" },
+    { "src": "/logo-full.jpg", "dest": "/logo-full.jpg" },
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
 }
