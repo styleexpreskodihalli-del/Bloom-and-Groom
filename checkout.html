@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout - Bloom & Groom</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<style>body{font-family:'Plus Jakarta Sans',sans-serif;background:#fffaf5;}.serif{font-family:'Playfair Display',serif;}</style>
+</head>
+<body>
+<nav class="bg-white border-b border-black/5 sticky top-0 z-50">
+<div class="max-w-[1200px] mx-auto px-6 py-3 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<img src="logo.jpg" style="height:50px;width:50px;border-radius:50%;mix-blend-mode:multiply;">
+<p class="serif font-bold text-[18px]">BLOOM & GROOM</p>
+</div>
+<a href="index-final-frozen.html" class="text-sm font-bold border px-4 py-2 rounded-full">← Back to Shop</a>
+</div>
+</nav>
+
+<div class="max-w-[1200px] mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-2 gap-10">
+<!-- Left: Customer Form -->
+<div class="bg-white rounded-[24px] p-8 border">
+<h2 class="serif text-2xl font-bold mb-6">Delivery Details</h2>
+<div class="space-y-4">
+<input id="cName" placeholder="Full Name *" class="w-full border rounded-xl px-4 py-3">
+<input id="cPhone" placeholder="Phone Number *" class="w-full border rounded-xl px-4 py-3">
+<input id="cEmail" placeholder="Email (for receipt)" class="w-full border rounded-xl px-4 py-3">
+<textarea id="cAddress" placeholder="Full Address + Pincode *" class="w-full border rounded-xl px-4 py-3 h-[100px]"></textarea>
+</div>
+<h3 class="font-bold mt-8 mb-3">Order Summary</h3>
+<div id="orderSummary" class="space-y-2 text-sm"></div>
+<div class="flex justify-between font-bold text-lg border-t pt-4 mt-4">
+<span>Total Payable</span><span id="totalAmount">₹0</span>
+</div>
+<button onclick="payNow()" class="w-full bg-black text-white py-4 rounded-full font-bold mt-6">Pay with Razorpay</button>
+<p class="text-[11px] opacity-60 text-center mt-3">Secure payments by Razorpay • UPI | Cards | NetBanking</p>
+</div>
+
+<!-- Right: Info -->
+<div class="bg-black text-white rounded-[24px] p-8">
+<h3 class="serif text-xl font-bold text-[#D4AF37]">What happens next?</h3>
+<ul class="mt-6 space-y-3 text-sm opacity-80 list-disc ml-5">
+<li>Payment verified instantly via Razorpay</li>
+<li>Order details sent to WhatsApp +91 8197018680</li>
+<li>We ship within 24 hours from Bangalore</li>
+<li>Free shipping over ₹3300 ($40)</li>
+</ul>
+<div class="mt-8 bg-white/10 rounded-xl p-4">
+<p class="text-xs">Test Mode: Use card 4111 1111 1111 1111</p>
+<p class="text-xs">Expiry: Any future date, CVV: 123</p>
+</div>
+</div>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem('bloom_cart')||'[]');
+let total = 0;
+function loadSummary(){
+const div = document.getElementById('orderSummary');
+div.innerHTML=''; total=0;
+if(cart.length===0){div.innerHTML='<p>Cart empty. <a href="index-final-frozen.html" class="underline">Go shop</a></p>'; return;}
+cart.forEach(c=>{total+=c.price*c.qty*83; div.innerHTML+=`<div class="flex justify-between"><span>${c.name} x${c.qty}</span><span>₹${c.price*c.qty*83}</span></div>`;});
+document.getElementById('totalAmount').innerText='₹'+total;
+}
+loadSummary();
+
+function payNow(){
+const name = document.getElementById('cName').value;
+const phone = document.getElementById('cPhone').value;
+const email = document.getElementById('cEmail').value || 'customer@bloomgroom.com';
+const address = document.getElementById('cAddress').value;
+if(!name ||!phone ||!address){alert('Please fill Name, Phone, Address'); return;}
+if(cart.length===0){alert('Cart empty'); return;}
+
+// REPLACE WITH YOUR LIVE KEY
+const RAZORPAY_KEY = "rzp_test_YOUR_KEY_HERE"; // e.g. rzp_test_xxxxxxxxxx
+
+var options = {
+"key": RAZORPAY_KEY,
+"amount": total*100, // Razorpay expects paise
+"currency": "INR",
+"name": "Bloom & Groom",
+"description": "Grooming Essentials",
+"image": "logo.jpg",
+"handler": function (response){
+// On success
+const msg = `Hi Bloom & Groom! New PAID Order:%0APayment ID: ${response.razorpay_payment_id}%0AName: ${name}%0APhone: ${phone}%0AAddress: ${address}%0A%0AItems:%0A`+cart.map(c=>`${c.name} x${c.qty}`).join('%0A')+`%0ATotal Paid: ₹${total}`;
+localStorage.removeItem('bloom_cart');
+window.location.href = `https://wa.me/918197018680?text=${msg}`;
+alert('Payment Successful! ID: '+response.razorpay_payment_id+' - Redirecting to WhatsApp');
+},
+"prefill": { "name": name, "email": email, "contact": phone },
+"notes": { "address": address, "items": JSON.stringify(cart) },
+"theme": { "color": "#000000" }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){alert('Payment Failed: '+response.error.description);});
+rzp1.open();
+}
+</script>
+</body>
+</html>
